@@ -1,3 +1,15 @@
+const numButtonContainer = document.querySelectorAll(".number-container button");
+const display = document.querySelector(".display");
+let temp = '';
+
+numButtonContainer.forEach(button => {
+    button.addEventListener('click', e => {
+        temp += e.target.innerText.toString();
+        display.innerText = temp;
+        console.log(temp);
+    })
+});
+
 let a;
 let b;
 let operator;
@@ -14,13 +26,3 @@ function subtract(a,b) {return a-b};
 function multiply(a,b) {return a*b};
 function divide(a,b) {return a/b};
 
-console.log(add(1,2));
-console.log(subtract(1,2));
-console.log(multiply(4,7));
-console.log(divide(9,3));
-console.log('solutions: 3, -1, 28, 3');
-
-console.log(operate(1,2,'+'));
-console.log(operate(1,2,'-'));
-console.log(operate(4,7,'*'));
-console.log(operate(9,3,'/'));
