@@ -24,14 +24,29 @@ function recordNumInput(e) {
 }
 
 function operatorClicked(e) {
+    if (a !== undefined && a !== '') {
+        b = +temp;
+        temp = operate(a, b, operator);
+        display.innerText = temp;
+    }
     a = +temp;
     temp = '';
-    operator = e.target.innerText;   
+    operator = e.target.innerText;
 }
 
 function equalsClicked(e) {
     b = +temp;
     temp = operate(a, b, operator);
+    display.innerText = temp;
+    a = '';
+    b = '';
+}
+
+function clearClicked(e) {
+    a = '';
+    b = '';
+    operator = '';
+    temp = '';
     display.innerText = temp;
 }
 
@@ -47,3 +62,10 @@ function subtract(a,b) {return a-b};
 function multiply(a,b) {return a*b};
 function divide(a,b) {return a/b};
 
+//operator buttons
+//operates if two variables available
+//after clicking equals return result
+//then when clicking operator, should not operate
+//because variables should be reset until
+//operator is pressed and then a should be set as
+//temp
